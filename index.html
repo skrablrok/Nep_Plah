@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nep Pleh — obnovljene toner kasete, narejene v Sloveniji</title>
+<meta name="description" content="Originalne toner kasete, strokovno obnovljene v Sloveniji. Preizkušena kakovost tiska, brez cenenih kitajskih kopij. Spletna trgovina, obnova kaset in servis tiskalnikov.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d1b2a;          /* temno modra namesto črne */
+  --ink-2:#33415a;
+  --muted:#66728a;
+  --line:#e3e7ef;
+  --paper:#ffffff;
+  --card:#ffffff;
+  --accent:#0087c1;       /* cian — glavna barva */
+  --accent-soft:#e3f4fb;
+  --cyan:#00a3e0; --magenta:#e6007e; --yellow:#ffd200; --key:#0d1b2a;
+  --t-K:#eef1f6; --t-C:#e1f4fc; --t-M:#fde7f2; --t-Y:#fff6cc;
+  --warn:#e6007e;
+  --radius:14px;
+  --wrap:1180px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;letter-spacing:-.02em;margin:0;line-height:1.08}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;font-size:15px;cursor:pointer;text-decoration:none;transition:transform .15s var(--ease),background .15s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.sm{height:38px;padding:0 16px;font-size:14px}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.4;pointer-events:none}
+
+/* ---------- Header ---------- */
+header.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+header.top.scrolled{box-shadow:0 6px 24px -12px rgba(13,27,42,.18)}
+.progress{position:absolute;left:0;bottom:-1px;height:3px;width:100%;transform-origin:left;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--cyan) 0 25%,var(--magenta) 25% 50%,var(--yellow) 50% 75%,var(--key) 75%);pointer-events:none}
+.top .wrap{display:flex;align-items:center;height:72px;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Inter Tight";font-weight:700;font-size:20px;letter-spacing:-.03em}
+.logo-mark{width:28px;height:28px;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.logo-mark i{display:block;border-radius:3px}
+.logo-mark i:nth-child(1){background:var(--cyan)}.logo-mark i:nth-child(2){background:var(--magenta)}.logo-mark i:nth-child(3){background:var(--yellow)}.logo-mark i:nth-child(4){background:var(--key)}
+nav.main{display:flex;gap:28px;margin-left:auto}
+nav.main a{text-decoration:none;font-size:15px;color:var(--ink-2)}
+nav.main a:hover,nav.main a.on{color:var(--ink)}
+.cart-btn{position:relative;display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-weight:500;font-size:14px}
+.cart-btn:hover{border-color:var(--ink)}
+.cart-count{min-width:20px;height:20px;padding:0 6px;border-radius:99px;background:var(--magenta);color:#fff;font-size:12px;font-weight:600;display:grid;place-items:center}
+.menu-btn{display:none;width:42px;height:42px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{padding:72px 0 128px;background:radial-gradient(circle,rgba(0,135,193,.13) 1px,transparent 1.6px) 0 0/22px 22px,linear-gradient(180deg,#eef8fd 0%,#e2f2fa 100%);border-bottom:1px solid #d3eaf5}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.hero-grid>*,.pd>*,.co>*,.contact>*{min-width:0}
+.hero h1{font-size:clamp(44px,7vw,92px);font-weight:700}
+.hero h1 .strike{color:var(--muted);font-weight:500}
+.hero h1 .strike s{text-decoration:none;background:linear-gradient(var(--magenta),var(--magenta)) no-repeat 0 56%/100% 5px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero h1 .hl{background:linear-gradient(var(--yellow),var(--yellow)) no-repeat 0 88%/100% 24%}
+.cmyk-bar{display:flex;height:6px;border-radius:6px;overflow:hidden;width:96px;margin-bottom:22px}.cmyk-bar i{flex:1}.cmyk-bar i:nth-child(1){background:var(--cyan)}.cmyk-bar i:nth-child(2){background:var(--magenta)}.cmyk-bar i:nth-child(3){background:var(--yellow)}.cmyk-bar i:nth-child(4){background:var(--key)}
+.hero .lead{font-size:19px;color:var(--ink-2);max-width:520px;margin:28px 0 36px}
+.search{display:flex;align-items:center;gap:8px;max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 6px 6px 20px;transition:border-color .15s}
+.search:focus-within{border-color:var(--ink)}
+.search input{flex:1;border:0;outline:0;background:transparent;font-size:16px;min-width:0}
+.hero-hint{font-size:13px;color:var(--muted);margin-top:12px;padding-left:20px}
+.hero-art{position:relative;aspect-ratio:1/1}
+.hero-art::before{content:"";position:absolute;inset:28px 0 0 28px;background:var(--yellow);border-radius:24px}
+.hero-art .ph{position:absolute;inset:0 28px 28px 0;border-radius:24px;overflow:hidden;background:#d9d4cc;box-shadow:0 30px 60px -30px rgba(13,27,42,.45)}
+.hero-art .ph img{display:block;width:100%;height:112%;margin-top:-6%;object-fit:cover}
+.hero-art .stack{width:88%;display:grid;grid-template-columns:1fr 1fr;gap:4% 6%}
+.hero-art .stack svg{width:100%}
+.seal{position:absolute;top:22px;right:22px;width:112px;height:112px;border-radius:50%;background:var(--magenta);color:#fff;display:grid;place-items:center;text-align:center;font-family:"Inter Tight";font-weight:700;font-size:13px;line-height:1.15;letter-spacing:.02em;transform:rotate(calc(-8deg + var(--rot,0deg)))}
+.seal small{display:block;font-family:Inter;font-weight:500;font-size:10px;opacity:.85;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+
+/* ---------- Proof row ---------- */
+.proof{position:relative;z-index:2;margin-top:-64px}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:20px;padding:0;width:calc(100% - 48px);max-width:calc(var(--wrap) - 48px);box-shadow:0 0 0 1px var(--line),0 28px 56px -30px rgba(13,27,42,.4)}
+.proof .wrap>div{position:relative;padding:28px;border-left:1px solid var(--line)}
+.proof .wrap>div:first-child{border-left:0}
+.proof .wrap>div::before{content:"";position:absolute;top:0;left:28px;width:40px;height:4px;border-radius:0 0 4px 4px}
+.proof .wrap>div:nth-child(1)::before{background:var(--cyan)}.proof .wrap>div:nth-child(2)::before{background:var(--magenta)}.proof .wrap>div:nth-child(3)::before{background:var(--yellow)}.proof .wrap>div:nth-child(4)::before{background:var(--key)}
+.proof b{display:block;font-family:"Inter Tight";font-size:28px;letter-spacing:-.02em}
+.proof span{font-size:14px;color:var(--muted)}
+
+/* ---------- Sections ---------- */
+section.block{padding:112px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(32px,4.4vw,52px);max-width:720px}
+.sec-head p{max-width:420px;color:var(--muted)}
+
+/* ---------- Quality / comparison ---------- */
+.quality{background:var(--ink);color:#f3f6fa;position:relative}
+.quality::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;transform-origin:left;transition:transform 1.2s var(--ease);background:linear-gradient(90deg,var(--cyan) 0 25%,var(--magenta) 25% 50%,var(--yellow) 50% 75%,#3a4d66 75%)}
+.js .quality:not(.in)::before{transform:scaleX(0)}
+.quality .eyebrow{color:var(--yellow)}
+.quality .sec-head p{color:#a7b3c6}
+.compare{border:1px solid #23344a;border-radius:var(--radius);overflow:hidden}
+.compare-row{display:grid;grid-template-columns:1fr 1.3fr 1.3fr;border-top:1px solid #23344a}
+.compare-row:first-child{border-top:0}
+.compare-row>div{padding:20px 24px}
+.compare-row.head{background:#132639;font-family:"Inter Tight";font-weight:600;font-size:15px}
+.compare-row.head .us{color:var(--cyan)}
+.compare-row.head .them{color:#ff6fb5}
+.compare-row .k{color:#a7b3c6;font-size:14px}
+.compare-row .us{display:flex;gap:12px;align-items:flex-start}
+.compare-row .them{display:flex;gap:12px;align-items:flex-start;color:#8e9bb0}
+.ico{flex:0 0 20px;width:20px;height:20px;margin-top:2px}
+.quality-note{margin-top:20px;font-size:13px;color:#7c7d77}
+
+/* ---------- Testni izpis: original proti kopiji ---------- */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin:0 auto 72px;max-width:960px}
+.cmp>*{min-width:0}
+.cmp figure{margin:0}
+.cmp-sub{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px;padding-top:8px}
+.cmp-sub h3{font-size:clamp(24px,2.6vw,32px);color:#fff}
+.cmp-sub span{font-size:14px;color:#a7b3c6}
+.sheet{position:relative;background:#fdfdfb;border-radius:10px;aspect-ratio:210/250;padding:8% 9% 7%;display:flex;flex-direction:column;gap:7%;box-shadow:0 30px 60px -24px rgba(0,0,0,.6);transform:rotate(-.8deg)}
+.cmp figure:last-child .sheet{transform:rotate(.8deg)}
+.sheet .cm{position:absolute;width:14px;height:14px}
+.sheet .cm::before,.sheet .cm::after{content:"";position:absolute;background:#0d1b2a;opacity:.5}
+.sheet .cm::before{width:14px;height:1px}.sheet .cm::after{width:1px;height:14px}
+.cm.tl{top:14px;left:14px}.cm.tr{top:14px;right:14px;transform:scaleX(-1)}.cm.bl{bottom:14px;left:14px;transform:scaleY(-1)}.cm.br{bottom:14px;right:14px;transform:scale(-1)}
+.sh-head{display:flex;justify-content:space-between;font-size:clamp(10px,1vw,12px);font-weight:600;color:#33415a;border-bottom:1px solid #0d1b2a;padding-bottom:8px;font-variant-numeric:tabular-nums}
+.patches{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.patches span{aspect-ratio:1.6/1;border-radius:3px}
+.sh-lines{display:grid;gap:9px}
+.sh-lines span{height:7px;border-radius:4px;background:#0d1b2a;opacity:.85}
+.ramp{height:20px;border-radius:4px;background:linear-gradient(90deg,#fff,#0d1b2a)}
+.regs{display:flex;justify-content:space-between;margin-top:auto}
+.regs svg{width:26px;height:26px}
+.ok-stamp{position:absolute;right:8%;bottom:7%;border:2px solid var(--cyan);color:var(--cyan);border-radius:8px;font-size:clamp(10px,1vw,12px);font-weight:600;padding:8px 12px;transform:rotate(-7deg);text-align:center;line-height:1.3;background:rgba(253,253,251,.85)}
+.ok-stamp b{display:block;font-family:"Inter Tight";font-size:clamp(18px,2vw,26px);letter-spacing:.02em}
+.sheet.bad .patches{opacity:.62;filter:saturate(.75) hue-rotate(-8deg)}
+.sheet.bad .patches span:nth-child(5),.sheet.bad .patches span:nth-child(10){filter:brightness(1.25)}
+.sheet.bad .sh-lines span{opacity:.45}
+.sheet.bad .ramp{background:linear-gradient(90deg,#fff 0,#fff 30%,#77736a 60%,#5c5a55 100%)}
+.sheet.bad::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;
+  background:
+   repeating-linear-gradient(90deg,transparent 0 23%,rgba(253,253,251,.85) 23% 24.2%,transparent 24.2% 57%,rgba(253,253,251,.75) 57% 58.5%,transparent 58.5% 100%),
+   radial-gradient(circle at 18% 72%,rgba(13,27,42,.16) 0 1px,transparent 1.6px) 0 0/37px 29px,
+   radial-gradient(circle at 63% 31%,rgba(13,27,42,.12) 0 .8px,transparent 1.4px) 7px 11px/53px 41px,
+   radial-gradient(circle at 40% 55%,rgba(13,27,42,.1) 0 1.4px,transparent 2px) 19px 3px/71px 67px,
+   linear-gradient(180deg,transparent 70%,rgba(13,27,42,.06) 70% 74%,transparent 74%)}
+.cmp figcaption{display:flex;gap:12px;align-items:center;margin-top:26px;font-family:"Inter Tight";font-weight:600;font-size:18px;color:#fff}
+.cmp figcaption small{font-family:Inter;font-weight:400;font-size:14px;color:#a7b3c6}
+.cmp figure.bad-fig figcaption{color:#ff6fb5}
+
+/* ---------- Product cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;transition:border-color .2s,transform .2s var(--ease)}
+.card:hover{border-color:#cfcec7;transform:translateY(-2px)}
+.card a.thumb{position:relative;display:block;aspect-ratio:5/4;background:#e4e0da;text-decoration:none;overflow:hidden}
+.card a.thumb img,.pd-art img,.mini img{display:block;width:100%;height:100%;object-fit:cover}
+.chip-c{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;padding:4px 10px 4px 8px;border-radius:99px;background:rgba(255,255,255,.88);backdrop-filter:blur(6px);font-size:12px;font-weight:600;color:var(--ink)}
+.chip-c i{width:10px;height:10px;border-radius:50%;display:block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.card[data-c=C] a.thumb,.pd-art[data-c=C],.mini[data-c=C]{background:var(--t-C)}
+.card[data-c=M] a.thumb,.pd-art[data-c=M],.mini[data-c=M]{background:var(--t-M)}
+.card[data-c=Y] a.thumb,.pd-art[data-c=Y],.mini[data-c=Y]{background:var(--t-Y)}
+.card[data-c=K] a.thumb,.pd-art[data-c=K],.mini[data-c=K]{background:var(--t-K)}
+.card a.thumb svg{width:70%}
+.card .body{padding:18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .brand{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card h3{font-size:18px}
+.card h3 a{text-decoration:none}
+.card .meta{font-size:13px;color:var(--muted)}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px}
+.price{font-family:"Inter Tight";font-weight:600;font-size:20px;letter-spacing:-.01em}
+.price small{font-family:Inter;font-weight:400;font-size:12px;color:var(--muted);margin-left:2px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#006a99;background:var(--accent-soft);border-radius:99px;padding:3px 10px;width:max-content}
+.add{width:40px;height:40px;border-radius:50%;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;display:grid;place-items:center;transition:transform .15s}
+.add:hover{transform:scale(1.06)}
+.add.done{background:var(--magenta);border-color:var(--magenta)}
+
+/* ---------- Services ---------- */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service{border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.svc-img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;transition:transform .7s var(--ease)}
+.service:hover .svc-img{transform:scale(1.04)}
+.svc-b{position:relative;padding:0 32px 36px;margin-top:-20px}
+.svc-b .n{box-shadow:0 0 0 5px var(--bg)}
+.service:nth-child(1){--bg:var(--t-C)}.service:nth-child(2){--bg:var(--t-M)}.service:nth-child(3){--bg:var(--t-Y)}
+.service{background:var(--bg)}
+.service .n{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;font-family:"Inter Tight";font-weight:700;font-size:14px;color:#fff}
+.service:nth-child(1) .n{background:var(--cyan)}.service:nth-child(2) .n{background:var(--magenta)}.service:nth-child(3) .n{background:var(--yellow);color:var(--ink)}
+.service h3{font-size:24px;margin:16px 0 12px}
+.service p{color:var(--ink-2);font-size:15px}
+
+/* ---------- Contact ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact dl{margin:0;display:grid;grid-template-columns:120px 1fr;row-gap:14px;font-size:16px}
+.contact dt{color:var(--muted)}
+.contact dd{margin:0}
+.map{aspect-ratio:4/3;border-radius:var(--radius);border:1px solid var(--line);background:
+  linear-gradient(#d3ecf8 1px,transparent 1px) 0 0/40px 40px,
+  linear-gradient(90deg,#d3ecf8 1px,transparent 1px) 0 0/40px 40px,var(--t-C);display:grid;place-items:center}
+.map{position:relative;overflow:hidden;background:var(--t-C)}
+.map-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(.97)}
+.map .pin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:3px solid #fff}
+.map-attr{position:absolute;right:8px;bottom:6px;font-size:11px;background:rgba(255,255,255,.8);padding:1px 6px;border-radius:4px;color:var(--muted)}
+.map-attr a{color:inherit}
+.map-lbl{text-decoration:none;color:var(--ink);position:absolute;left:20px;bottom:20px;background:#fff;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.45;box-shadow:0 10px 30px -14px rgba(13,27,42,.35);transition:transform .25s var(--ease)}
+.map-lbl b{color:var(--accent);font-weight:600}
+.map-lbl:hover{transform:translateY(-3px)}
+.pin{width:18px;height:18px;border-radius:50%;background:var(--magenta);box-shadow:0 0 0 10px rgba(230,0,126,.15)}
+
+/* ---------- Footer ---------- */
+footer{border-top:6px solid;border-image:linear-gradient(90deg,var(--cyan) 0 25%,var(--magenta) 25% 50%,var(--yellow) 50% 75%,var(--key) 75%) 1;padding:48px 0;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+/* ---------- Shop view ---------- */
+.shop-head{padding:64px 0 32px}
+.shop-head h1{font-size:clamp(36px,5vw,60px)}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:32px;position:sticky;top:72px;background:var(--paper);z-index:5}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{height:36px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);cursor:pointer;font-size:14px}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--accent);border-color:var(--accent)!important;color:#fff;border-color:var(--ink)}
+.toolbar .search{flex:1;min-width:220px;max-width:340px;margin-left:auto;padding:4px 4px 4px 16px}
+.toolbar .search input{font-size:14px;height:30px}
+select.sort{height:38px;border-radius:99px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:14px;cursor:pointer}
+.empty{padding:80px 0;text-align:center}
+.empty h3{font-size:24px;margin-bottom:8px}
+.empty p{color:var(--muted);margin-bottom:24px}
+
+/* ---------- Product detail ---------- */
+.pd{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:56px 0 112px}
+.pd-art{position:relative;aspect-ratio:5/4;border-radius:24px;background:#e4e0da;overflow:hidden}
+.pd-art .chip-c{left:20px;bottom:20px;font-size:13px}
+.pd-art svg{width:72%}
+.crumb{font-size:14px;color:var(--muted);margin-bottom:24px}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:var(--ink)}
+.pd h1{font-size:clamp(34px,4vw,48px);margin:10px 0 8px}
+.pd .price{font-size:32px;margin:28px 0 4px}
+.pd .vat{font-size:13px;color:var(--muted)}
+.specs{margin:32px 0;border-top:1px solid var(--line)}
+.specs div{display:grid;grid-template-columns:160px 1fr;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.specs dt{color:var(--muted)}
+.specs dd{margin:0}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:99px;height:48px;background:var(--card)}
+.qty button{width:44px;height:100%;border:0;background:none;cursor:pointer;font-size:18px}
+.qty span{min-width:28px;text-align:center;font-weight:600}
+.pd-actions{display:flex;gap:12px;align-items:center}
+.assure{margin-top:32px;padding:20px;border-radius:var(--radius);background:var(--t-M);display:flex;gap:14px;font-size:14px;color:#5a0533}
+.assure b{display:block;margin-bottom:2px;font-size:15px}
+
+/* ---------- Drawer ---------- */
+.scrim{position:fixed;inset:0;background:rgba(17,18,16,.35);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:var(--paper);z-index:50;transform:translateX(100%);transition:transform .3s var(--ease);display:flex;flex-direction:column;border-left:1px solid var(--line)}
+body.cart-open .scrim{opacity:1;pointer-events:auto}
+body.cart-open .drawer{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:22px}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;display:grid;place-items:center}
+.lines{flex:1;overflow:auto;padding:8px 24px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:center}
+.line .mini{width:64px;height:64px;border-radius:10px;background:#e4e0da;overflow:hidden}
+.line .mini svg{width:80%}
+.line h4{font-size:15px;font-family:Inter;font-weight:600;letter-spacing:0}
+.line .meta{font-size:13px;color:var(--muted)}
+.line .qty{height:34px;margin-top:6px}
+.line .qty button{width:32px;font-size:15px}
+.line .rm{border:0;background:none;color:var(--muted);font-size:13px;cursor:pointer;text-decoration:underline;padding:0;margin-left:10px}
+.drawer-foot{padding:20px 24px 24px;border-top:1px solid var(--line);background:var(--card)}
+.sum{display:flex;justify-content:space-between;font-size:15px;margin-bottom:6px}
+.sum.total{font-family:"Inter Tight";font-weight:700;font-size:20px;margin:12px 0 18px}
+.ship-bar{height:4px;border-radius:4px;background:var(--line);overflow:hidden;margin:6px 0 16px}
+.ship-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--magenta));transition:width .3s}
+
+/* ---------- Checkout ---------- */
+.co{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;padding:56px 0 112px;align-items:start}
+.co h1{font-size:clamp(34px,4vw,48px);margin-bottom:8px}
+fieldset{border:0;padding:0;margin:40px 0 0}
+legend{font-family:"Inter Tight";font-weight:600;font-size:20px;margin-bottom:18px;padding:0}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fields .full{grid-column:1/-1}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500}
+label.f span.opt{color:var(--muted);font-weight:400}
+.f input,.f textarea{height:48px;border-radius:10px;border:1px solid var(--line);background:var(--card);padding:0 14px;font-size:15px;outline:0;transition:border-color .15s}
+.f textarea{height:96px;padding:12px 14px;resize:vertical}
+.f input:focus,.f textarea:focus{border-color:var(--ink)}
+.f input.bad{border-color:var(--warn)}
+.f .err{color:var(--warn);font-size:13px;font-weight:400;min-height:0}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:14px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer}
+.opt:has(input:checked){border-color:var(--ink)}
+.opt input{margin-top:4px;accent-color:var(--ink)}
+.opt b{display:block;font-weight:600}
+.opt small{color:var(--muted);font-size:13px}
+.summary{position:sticky;top:96px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.summary h2{font-size:20px;margin-bottom:12px}
+.summary .line{grid-template-columns:48px 1fr auto;padding:12px 0}
+.summary .mini{width:48px;height:48px}
+
+/* ---------- Thanks ---------- */
+.thanks{padding:120px 0;max-width:640px}
+.thanks .ok{width:56px;height:56px;border-radius:50%;background:var(--cyan);display:grid;place-items:center;margin-bottom:28px}
+.thanks h1{font-size:clamp(36px,5vw,56px);margin-bottom:16px}
+.thanks p{color:var(--ink-2);font-size:17px;margin-bottom:12px}
+
+/* ---------- Toast ---------- */
+.toast{white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis;position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:99px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s var(--ease);z-index:60}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .proof .wrap{grid-template-columns:repeat(2,1fr)}
+  .proof .wrap>div:nth-child(3){border-left:0}
+  .proof .wrap>div:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:820px){
+  .cmp{grid-template-columns:1fr;gap:56px;margin-bottom:56px}
+  .cmp-sub{flex-direction:column;align-items:start;gap:8px}
+  .wrap{padding:0 16px}
+  nav.main{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 16px}
+  nav.main a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  nav.main a:last-child{border-bottom:0}
+  body.menu-open nav.main{display:flex}
+  .menu-btn{display:grid;place-items:center;margin-left:auto}
+  .top .wrap{gap:12px}
+  .cart-btn .lbl{display:none}
+  .hero{padding:48px 0 104px}
+  .proof{margin-top:-56px}
+  .proof .wrap{width:calc(100% - 32px);border-radius:16px}
+  .hero-grid,.pd,.co,.contact{grid-template-columns:1fr;gap:40px}
+  .hero-art{max-width:420px}
+  .seal{width:92px;height:92px;font-size:11px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .card .body{padding:14px}
+  .card h3{font-size:16px}
+  section.block{padding:72px 0}
+  .sec-head{flex-direction:column;align-items:start;margin-bottom:32px}
+  .services{grid-template-columns:1fr}
+  .svc-b{padding:0 24px 28px}
+  .services{gap:12px}
+  .compare-row{grid-template-columns:1fr 1fr}
+  .compare-row .k{grid-column:1/-1;padding-bottom:0}
+  .compare-row.head .k{display:none}
+  .compare-row>div{padding:14px 16px}
+  .toolbar{position:static}
+  .toolbar .search{max-width:none;margin-left:0;order:-1;flex-basis:100%}
+  .chips{overflow-x:auto;flex-wrap:nowrap;max-width:100%;padding-bottom:2px}
+  .chip{flex:0 0 auto}
+  .fields{grid-template-columns:1fr}
+  .summary{position:static}
+  .specs div{grid-template-columns:130px 1fr}
+}
+@media (max-width:420px){
+  .proof .wrap>div{padding:20px 16px}
+  .proof .wrap>div::before{left:16px}
+  .proof b{font-size:22px}
+  .proof span{font-size:13px;line-height:1.4;display:block}
+}
+
+/* ---------- Dodatne animacije ---------- */
+.js .hero h1 .hl{background-size:0% 24%;transition:background-size .9s var(--ease) .45s}
+.js .seen .hero h1 .hl,.js .hero .seen h1 .hl{background-size:100% 24%}
+.js .hero h1 .strike s{background-size:0% 5px;transition:background-size .8s var(--ease) 1s}
+.js .hero .seen h1 .strike s{background-size:100% 5px}
+.js .cmyk-bar i{transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.js .hero .seen .cmyk-bar i{transform:none}
+.js .hero .seen .cmyk-bar i:nth-child(2){transition-delay:.08s}.js .hero .seen .cmyk-bar i:nth-child(3){transition-delay:.16s}.js .hero .seen .cmyk-bar i:nth-child(4){transition-delay:.24s}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-7px)}}
+.hero-art .stack svg{animation:float 3.2s ease-in-out infinite alternate}
+.hero-art .stack svg:nth-child(2){animation-delay:-.8s}.hero-art .stack svg:nth-child(3){animation-delay:-1.6s}.hero-art .stack svg:nth-child(4){animation-delay:-2.4s}
+.hero-art .ph img{transform:translateY(var(--py,0));will-change:transform}
+@keyframes pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
+.js .compare-row .ico,.js .service .n{transform:scale(0)}
+.js .compare-row.seen .ico,.js .service.seen .n{animation:pop .5s var(--ease) both;animation-delay:calc(var(--d,0ms) + .3s)}
+.js .proof .wrap>div::before{transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.js .proof .wrap>div.seen::before{transform:none;transition-delay:calc(var(--d,0ms) + .2s)}
+.card .thumb img{transition:transform .7s var(--ease)}
+.card:hover .thumb img{transform:scale(1.05)}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(230,0,126,.35)}100%{box-shadow:0 0 0 22px rgba(230,0,126,0)}}
+.pin{animation:ring 2.2s ease-out infinite}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.cart-count.bump{animation:bump .4s var(--ease)}
+.js .sec-head h2{clip-path:inset(0 0 100% 0);transition:clip-path .9s var(--ease) .1s}
+.js .sec-head.seen h2{clip-path:inset(0 0 -10% 0)}
+
+/* ---------- Scroll animacije (umirjene) ---------- */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none}.js .quality::before{transform:none}
+  .js .hero h1 .hl{background-size:100% 24%}.js .hero h1 .strike s{background-size:100% 5px}.js .cmyk-bar i,.js .compare-row .ico,.js .service .n,.js .proof .wrap>div::before{transform:none}
+  .js .sec-head h2{clip-path:none}.hero-art .stack svg,.pin,.cart-count.bump,.js .compare-row.seen .ico,.js .service.seen .n{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#/" aria-label="Nep Pleh — domov"><span class="logo-mark"><i></i><i></i><i></i><i></i></span>Nep Pleh</a>
+    <nav class="main" id="nav">
+      <a href="#/trgovina" data-nav="trgovina">Trgovina</a>
+      <a href="#/kakovost" data-nav="kakovost">Zakaj Nep Pleh</a>
+      <a href="#/storitve" data-nav="storitve">Storitve</a>
+      <a href="#/kontakt" data-nav="kontakt">Kontakt</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Odpri meni" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <span class="progress" id="progress" aria-hidden="true"></span>
+    <button class="cart-btn" id="cartBtn" aria-label="Odpri košarico">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+      <span class="lbl">Košarica</span><span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="color:var(--ink);font-weight:600;margin-bottom:4px">Nep Pleh, obnova toner kaset in vzdrževanje pripadajoče opreme, d.o.o.</div>
+      <div>Cesta Andreja Bitenca 68, 1000 Ljubljana · Matična št. 1191543000</div>
+      <div>Obnovljeno v Sloveniji · © <span id="yr"></span></div>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="#/trgovina">Trgovina</a>
+      <a href="#/storitve">Storitve</a>
+      <a href="#/kontakt">Kontakt</a>
+      <a href="#/pogoji">Splošni pogoji</a>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Košarica" aria-hidden="true">
+  <div class="drawer-head">
+    <h2>Košarica</h2>
+    <button class="x" id="closeCart" aria-label="Zapri košarico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="lines" id="cartLines"></div>
+  <div class="drawer-foot" id="cartFoot"></div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   NASTAVITVE — uredi pred objavo
+   ========================================================= */
+const SHOP = {
+  // Vir: javni imeniki (najdi.si, iTIS) — pred objavo potrdite z lastnikom
+  email: "nep@siol.net",
+  phone: "041 781 878",
+  phoneHref: "+38641781878",
+  address: "Cesta Andreja Bitenca 68, 1000 Ljubljana",
+  hours: "pon–pet 7.00–15.00",
+  maticna: "1191543000",
+  freeShipping: 60,                     // brezplačna dostava nad (EUR z DDV)
+  shippingCost: 4.90,
+  // Če uporabljaš Formspree / Getform ipd., vpiši endpoint. Če je prazno, se naročilo pošlje prek e-pošte (mailto).
+  formEndpoint: ""
+};
+
+/* Barve tonerjev za ilustracije */
+const C = {K:"#1b1c1a", C:"#1f8fbf", M:"#c4297a", Y:"#e7b812"};
+const CN = {K:"Črna", C:"Cian", M:"Magenta", Y:"Rumena"};
+
+/* =========================================================
+   IZDELKI — cene so DEMO, zamenjaj s pravimi
+   ========================================================= */
+const PRODUCTS = [
+  {id:"hp-59a",  brand:"HP", name:"HP 59A", code:"CF259A", color:"K", pages:3000, price:49.90, type:"Toner", fits:"LaserJet Pro M404, M304, MFP M428"},
+  {id:"hp-26a",  brand:"HP", name:"HP 26A", code:"CF226A", color:"K", pages:3100, price:39.90, type:"Toner", fits:"LaserJet Pro M402, MFP M426"},
+  {id:"hp-83a",  brand:"HP", name:"HP 83A", code:"CF283A", color:"K", pages:1500, price:24.90, type:"Toner", fits:"LaserJet Pro M125, M127, M201, M225"},
+  {id:"hp-207a-c", brand:"HP", name:"HP 207A Cian", code:"W2211A", color:"C", pages:1250, price:44.90, type:"Toner", fits:"Color LaserJet Pro M255, MFP M282, M283"},
+  {id:"br-tn2420", brand:"Brother", name:"Brother TN-2420", code:"TN-2420", color:"K", pages:3000, price:29.90, type:"Toner", fits:"HL-L2350DW, HL-L2370DN, DCP-L2530DW, MFC-L2710DW"},
+  {id:"br-dr2400", brand:"Brother", name:"Brother DR-2400", code:"DR-2400", color:"K", pages:12000, price:39.90, type:"Boben", fits:"HL-L2310D, HL-L2350DW, DCP-L2510D, MFC-L2710DN"},
+  {id:"br-tn243m", brand:"Brother", name:"Brother TN-243 Magenta", code:"TN-243M", color:"M", pages:1000, price:27.90, type:"Toner", fits:"HL-L3210CW, DCP-L3550CDW, MFC-L3750CDW"},
+  {id:"ca-052",  brand:"Canon", name:"Canon 052", code:"2199C002", color:"K", pages:3100, price:44.90, type:"Toner", fits:"i-SENSYS LBP212dw, LBP214dw, MF421dw, MF426dw"},
+  {id:"ca-054y", brand:"Canon", name:"Canon 054 Rumena", code:"3021C002", color:"Y", pages:1200, price:36.90, type:"Toner", fits:"i-SENSYS LBP621Cw, LBP623Cdw, MF641Cw, MF645Cx"},
+  {id:"ky-tk1150", brand:"Kyocera", name:"Kyocera TK-1150", code:"1T02RV0NL0", color:"K", pages:3000, price:34.90, type:"Toner", fits:"ECOSYS M2135dn, M2635dn, P2235dn"},
+  {id:"ky-tk5240k", brand:"Kyocera", name:"Kyocera TK-5240K", code:"1T02R70NL0", color:"K", pages:4000, price:42.90, type:"Toner", fits:"ECOSYS P5026cdn, M5526cdn"},
+  {id:"lx-56f2000", brand:"Lexmark", name:"Lexmark 56F2000", code:"56F2000", color:"K", pages:6000, price:59.90, type:"Toner", fits:"MS321dn, MS421dn, MX321adn, MX421ade"},
+  {id:"sa-d111s", brand:"Samsung", name:"Samsung MLT-D111S", code:"SU810A", color:"K", pages:1000, price:19.90, type:"Toner", fits:"Xpress M2020, M2022, M2070"},
+];
+const FEATURED = ["hp-59a","br-tn2420","ca-052","ky-tk1150","hp-207a-c","br-tn243m","ca-054y","lx-56f2000"];
+const BRANDS = ["Vse", ...new Set(PRODUCTS.map(p=>p.brand))];
+
+/* =========================================================
+   POMOŽNE FUNKCIJE
+   ========================================================= */
+const $ = s => document.querySelector(s);
+const eur = n => n.toLocaleString("sl-SI",{style:"currency",currency:"EUR"});
+const byId = id => PRODUCTS.find(p=>p.id===id);
+const esc = s => String(s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+/* Fotografije izdelkov (img/). Zamenjajte z lastnimi fotografijami, ko bodo na voljo. */
+function photoSrc(p){ return "img/" + (p.type==="Boben" ? "drum" : p.color.toLowerCase()) + ".jpg"; }
+function photo(p, eager){ return `<img src="${photoSrc(p)}" alt="${esc(p.name)} — obnovljena kaseta" width="960" height="773" ${eager?"":'loading="lazy"'} decoding="async">`; }
+function cartridge(color="K"){
+  const c = C[color]||C.K;
+  return `<svg viewBox="0 0 320 200" aria-hidden="true">
+    <defs><linearGradient id="g${color}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#243449"/><stop offset="1" stop-color="#0d1b2a"/></linearGradient></defs>
+    <ellipse cx="160" cy="182" rx="128" ry="8" fill="#000" opacity=".07"/>
+    <path d="M28 70c0-14 10-24 24-24h196c14 0 24 10 24 24v74c0 14-10 24-24 24H52c-14 0-24-10-24-24z" fill="url(#g${color})"/>
+    <rect x="28" y="116" width="264" height="16" fill="${color==="K"?"#9aa7ba":c}"/>
+    <rect x="272" y="70" width="22" height="66" rx="6" fill="#2c3e55"/>
+    <rect x="58" y="66" width="120" height="38" rx="6" fill="#fbfbf8"/>
+    <rect x="68" y="76" width="54" height="6" rx="3" fill="#111210"/>
+    <rect x="68" y="88" width="84" height="5" rx="2.5" fill="#c9c8c1"/>
+    <circle cx="232" cy="85" r="14" fill="${c===C.K?"#00a3e0":"#fff"}"/>
+    <path d="M225 85l5 5 9-10" stroke="${c===C.K?"#fff":c}" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="44" y="146" width="230" height="4" rx="2" fill="#000" opacity=".25"/>
+  </svg>`;
+}
+function reg(){ return `<svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="none" stroke="#0d1b2a" stroke-width="1.4"/><path d="M16 3v26M3 16h26" stroke="#0d1b2a" stroke-width="1.4"/></svg>`; }
+const SC = {K:"#0d1b2a", C:"#00a3e0", M:"#e6007e", Y:"#ffd200"};
+function sheet(bad=false){
+  const today=new Date().toLocaleDateString("sl-SI",{day:"2-digit",month:"2-digit",year:"numeric"});
+  const patches=["C","M","Y","K"].map(c=>[1,.7,.4,.15].map(t=>`<span style="background:${SC[c]};opacity:${t}"></span>`).join("")).join("");
+  const lines=[100,92,97,64,88,100,71].map(w=>`<span style="width:${w}%"></span>`).join("");
+  return `<div class="sheet ${bad?"bad":""}" role="img" aria-label="${bad?"Ponazoritev izpisa generične kopije: proge, bled tisk, raztresen toner":"Testni izpis obnovljene kasete Nep Pleh: čiste barve, ostre črte"}">
+    <span class="cm tl"></span><span class="cm tr"></span><span class="cm bl"></span><span class="cm br"></span>
+    <div class="sh-head"><span>${bad?"Generična kopija":"Testni izpis · Nep Pleh"}</span><span>${bad?"—":"Št. 04817"}</span></div>
+    <div class="patches">${patches}</div>
+    <div class="sh-lines">${lines}</div>
+    <div class="ramp"></div>
+    <div class="regs">${reg()}${reg()}</div>
+    ${bad?"":`<div class="ok-stamp">Preizkušeno<b>OK</b>${today}</div>`}
+  </div>`;
+}
+const check = `<svg class="ico" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#00a3e0"/><path d="M6 10.4l2.6 2.6L14 7.6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+const cross = `<svg class="ico" viewBox="0 0 20 20"><circle cx="10" cy="10" r="9.25" fill="none" stroke="#e6007e" stroke-width="1.5"/><path d="M7 7l6 6M13 7l-6 6" stroke="#e6007e" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+const plus = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>`;
+const tick = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
+
+/* =========================================================
+   KOŠARICA
+   ========================================================= */
+let cart = {};
+try{ cart = JSON.parse(localStorage.getItem("np_cart")||"{}") || {}; }catch(e){ cart = {}; }
+function saveCart(){ try{ localStorage.setItem("np_cart", JSON.stringify(cart)); }catch(e){} renderCart(); }
+const cartItems = () => Object.entries(cart).map(([id,q])=>({p:byId(id),q})).filter(x=>x.p);
+const subtotal = () => cartItems().reduce((s,x)=>s+x.p.price*x.q,0);
+const shipping = () => { const s=subtotal(); return s===0||s>=SHOP.freeShipping?0:SHOP.shippingCost; };
+
+function addToCart(id,q=1,btn){
+  cart[id]=(cart[id]||0)+q; saveCart();
+  toast(`${byId(id).name} dodan v košarico`);
+  if(btn){ btn.classList.add("done"); btn.innerHTML=tick; setTimeout(()=>{btn.classList.remove("done");btn.innerHTML=plus},1200); }
+}
+function setQty(id,q){ if(q<=0) delete cart[id]; else cart[id]=q; saveCart(); if(location.hash.startsWith("#/blagajna")) route(); }
+
+function renderCart(){
+  const items = cartItems();
+  $("#cartCount").textContent = items.reduce((s,x)=>s+x.q,0);
+  const cc=$("#cartCount"); cc.classList.remove("bump"); void cc.offsetWidth; if(items.length) cc.classList.add("bump");
+  if(!items.length){
+    $("#cartLines").innerHTML = `<div class="empty"><h3>Košarica je prazna</h3><p>Poiščite toner za svoj tiskalnik.</p><a class="btn" href="#/trgovina" onclick="closeCart()">V trgovino</a></div>`;
+    $("#cartFoot").innerHTML = ""; return;
+  }
+  $("#cartLines").innerHTML = items.map(({p,q})=>`
+    <div class="line">
+      <div class="mini" data-c="${p.color}">${photo(p)}</div>
+      <div><h4>${esc(p.name)}</h4><div class="meta">${esc(p.code)} · ${eur(p.price)}</div>
+        <div style="display:flex;align-items:center">
+          <div class="qty"><button aria-label="Manj" onclick="setQty('${p.id}',${q-1})">−</button><span>${q}</span><button aria-label="Več" onclick="setQty('${p.id}',${q+1})">+</button></div>
+          <button class="rm" onclick="setQty('${p.id}',0)">Odstrani</button>
+        </div>
+      </div>
+      <div class="price" style="font-size:16px">${eur(p.price*q)}</div>
+    </div>`).join("");
+  const s=subtotal(), left=Math.max(0,SHOP.freeShipping-s);
+  $("#cartFoot").innerHTML = `
+    <div class="sum muted" style="font-size:13px">${left>0?`Še ${eur(left)} do brezplačne dostave`:"Dostava je brezplačna"}</div>
+    <div class="ship-bar"><i style="width:${Math.min(100,s/SHOP.freeShipping*100)}%"></i></div>
+    <div class="sum"><span class="muted">Vmesni seštevek</span><span>${eur(s)}</span></div>
+    <div class="sum"><span class="muted">Dostava</span><span>${shipping()?eur(shipping()):"Brezplačno"}</span></div>
+    <div class="sum total"><span>Skupaj z DDV</span><span>${eur(s+shipping())}</span></div>
+    <a class="btn block" href="#/blagajna" onclick="closeCart()">Nadaljuj na naročilo</a>`;
+}
+function openCart(){ document.body.classList.add("cart-open"); $("#drawer").setAttribute("aria-hidden","false"); $("#closeCart").focus(); }
+function closeCart(){ document.body.classList.remove("cart-open"); $("#drawer").setAttribute("aria-hidden","true"); }
+$("#cartBtn").onclick=openCart; $("#closeCart").onclick=closeCart; $("#scrim").onclick=closeCart;
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeCart(); });
+
+let tt; function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("show"),1800); }
+
+/* =========================================================
+   POGLEDI
+   ========================================================= */
+function card(p){
+  return `<article class="card" data-c="${p.color}">
+    <a class="thumb" href="#/izdelek/${p.id}" aria-label="${esc(p.name)}">${photo(p)}<span class="chip-c"><i style="background:${C[p.color]}"></i>${CN[p.color]}</span></a>
+    <div class="body">
+      <span class="brand">${esc(p.brand)} · ${p.type}</span>
+      <h3><a href="#/izdelek/${p.id}">${esc(p.name)}</a></h3>
+      <span class="meta">${p.pages.toLocaleString("sl-SI")} strani · ${CN[p.color]}</span>
+      <div class="foot">
+        <span class="price">${eur(p.price)}</span>
+        <button class="add" aria-label="Dodaj ${esc(p.name)} v košarico" onclick="addToCart('${p.id}',1,this)">${plus}</button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function viewHome(){
+  return `
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="cmyk-bar"><i></i><i></i><i></i><i></i></div>
+        <div class="eyebrow">Obnovljeno v Sloveniji</div>
+        <h1 style="margin-top:18px"><span class="hl">Kakovost.</span><br><span class="strike"><s>Ne kitajska kopija.</s></span></h1>
+        <p class="lead">Originalne toner kasete, strokovno obnovljene v naši delavnici in preizkušene s tiskom. Kakovost originala — za bistveno nižjo ceno.</p>
+        <form class="search" onsubmit="event.preventDefault();location.hash='#/trgovina?q='+encodeURIComponent(this.q.value)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6e6f69" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input name="q" type="search" placeholder="npr. M404, TN-2420, Kyocera" aria-label="Poišči toner po modelu tiskalnika ali oznaki">
+          <button class="btn sm" type="submit">Poišči</button>
+        </form>
+        <p class="hero-hint">Vpišite model tiskalnika ali oznako kasete.</p>
+      </div>
+      <div class="hero-art">
+        <div class="ph"><img src="img/workshop.jpg" alt="Obnova toner kasete v naši delavnici" width="960" height="960" fetchpriority="high" decoding="async"></div>
+        <div class="seal"><div>100 %<br>PREIZKUŠENO<small>Made in Slovenia</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="proof"><div class="wrap">
+    <div><b>Original</b><span>OEM ohišje, nikoli generična kopija</span></div>
+    <div><b data-count="100">100 %</b><span>vsaka kaseta preizkušena s tiskom</span></div>
+    <div><b data-count="40">do −40 %</b><span>nižja cena kot nova originalna</span></div>
+    <div><b>Slovenija</b><span>obnovljeno lokalno, hitra dostava</span></div>
+  </div></div>
+
+  <section class="block" id="izdelki" style="padding:72px 0 96px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Najbolj iskano</div><h2 style="margin-top:14px">Kasete v zalogi</h2></div>
+        <a class="btn ghost" href="#/trgovina">Vseh ${PRODUCTS.length} izdelkov</a>
+      </div>
+      <div class="grid">${FEATURED.map(id=>card(byId(id))).join("")}</div>
+    </div>
+  </section>
+
+
+  <section class="block quality" id="kakovost">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="eyebrow">Zakaj Nep Pleh</div>
+          <h2 style="margin-top:14px">Obnovljena originalna kaseta ni isto kot poceni kitajska kopija.</h2>
+        </div>
+        <p>Večina cenenih tonerjev na trgu je novo izdelanih generičnih kopij iz Azije. Mi jih ne prodajamo. Obnavljamo originalne kasete — ročno, kos za kosom.</p>
+      </div>
+      <div class="compare" role="table" aria-label="Primerjava">
+        <div class="compare-row head" role="row"><div class="k" role="columnheader"></div><div class="us" role="columnheader">Nep Pleh</div><div class="them" role="columnheader">Generična kitajska kopija</div></div>
+        ${[
+          ["Ohišje","Originalno ohišje proizvajalca (OEM)","Novo, cenena neoriginalna plastika"],
+          ["Obdelava","Ročno razstavljena, očiščena; obrabljeni deli zamenjani","Masovna serijska proizvodnja"],
+          ["Kontrola","Vsaka kaseta preizkušena s testnim tiskom","Brez kontrole posamezne kasete"],
+          ["Kakovost tiska","Enakomerna, ostra, brez prog","Pogosto bledo, progasto, puščanje tonerja"],
+          ["Poreklo","Obnovljeno v Sloveniji","Uvoz iz Azije"],
+          ["Okolje","Ponovna uporaba — manj odpadne plastike","Nova plastika, kratka življenjska doba"],
+          ["Garancija","Polna garancija in lokalna podpora","Težko uveljavljiva"]
+        ].map(r=>`<div class="compare-row" role="row"><div class="k" role="cell">${r[0]}</div><div class="us" role="cell">${check}<span>${r[1]}</span></div><div class="them" role="cell">${cross}<span>${r[2]}</span></div></div>`).join("")}
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="storitve">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="eyebrow">Storitve</div><h2 style="margin-top:14px">Več kot trgovina.</h2></div>
+        <p>Za podjetja, ustanove in pisarne — od ene kasete do celotnega voznega parka tiskalnikov.</p>
+      </div>
+      <div class="services">
+        <div class="service"><img class="svc-img" src="img/row.jpg" alt="Obnovljene toner kasete na delovni mizi" width="1200" height="896" loading="lazy" decoding="async"><div class="svc-b"><span class="n">01</span><h3>Obnova vaše kasete</h3><p>Prinesite ali pošljite prazno kaseto. Obnovimo jo, preizkusimo in vrnemo pripravljeno za tisk.</p></div></div>
+        <div class="service"><img class="svc-img" src="img/printer-button.jpg" alt="Servis laserskega tiskalnika" width="1200" height="1800" loading="lazy" decoding="async" style="object-position:50% 40%"><div class="svc-b"><span class="n">02</span><h3>Servis tiskalnikov</h3><p>Redno vzdrževanje, čiščenje in popravila laserskih tiskalnikov ter pripadajoče opreme.</p></div></div>
+        <div class="service"><img class="svc-img" src="img/printer-counter.jpg" alt="Pisarniški laserski tiskalnik" width="1200" height="900" loading="lazy" decoding="async"><div class="svc-b"><span class="n">03</span><h3>Prevzem praznih kaset</h3><p>Prazne kasete brezplačno prevzamemo. Manj odpadkov, nižji stroški za vas.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="kontakt" style="padding-top:0">
+    <div class="wrap contact">
+      <div>
+        <div class="eyebrow">Kontakt</div>
+        <h2 style="font-size:clamp(32px,4.4vw,52px);margin:14px 0 32px">Ne najdete svoje kasete? Pokličite.</h2>
+        <dl>
+          <dt>Telefon</dt><dd><a href="tel:${SHOP.phoneHref}">${SHOP.phone}</a></dd>
+          <dt>E-pošta</dt><dd><a href="mailto:${SHOP.email}">${SHOP.email}</a></dd>
+          <dt>Naslov</dt><dd>${SHOP.address}</dd>
+          <dt>Delovni čas</dt><dd>${SHOP.hours}</dd>
+        </dl>
+      </div>
+      <div class="map">
+        <img class="map-img" src="img/map.jpg" alt="Zemljevid lokacije: Cesta Andreja Bitenca 68, Ljubljana (Šentvid)" width="1200" height="900" loading="lazy" decoding="async">
+        <span class="pin" aria-hidden="true"></span>
+        <span class="map-attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></span>
+        <a class="map-lbl" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Cesta Andreja Bitenca 68, 1000 Ljubljana")}" target="_blank" rel="noopener">Cesta Andreja Bitenca 68, Ljubljana<br><b>Navodila za pot →</b></a>
+      </div>
+    </div>
+  </section>`;
+}
+
+let shopState = {brand:"Vse", color:"all", q:"", sort:"pop"};
+function viewShop(){
+  return `
+  <div class="wrap">
+    <div class="shop-head">
+      <div class="eyebrow">Trgovina</div>
+      <h1 style="margin-top:14px">Obnovljene toner kasete</h1>
+      <p class="muted" style="margin-top:12px;max-width:560px">Vsaka kaseta je originalna, obnovljena v Sloveniji in preizkušena s tiskom. Cene vključujejo DDV.</p>
+    </div>
+    <div class="toolbar">
+      <div class="chips" id="brandChips">${BRANDS.map(b=>`<button class="chip ${shopState.brand===b?"on":""}" data-b="${b}">${b}</button>`).join("")}</div>
+      <select class="sort" id="colorSel" aria-label="Barva">
+        <option value="all">Vse barve</option><option value="K">Črna</option><option value="color">Barvna</option>
+      </select>
+      <select class="sort" id="sortSel" aria-label="Razvrsti">
+        <option value="pop">Priljubljeno</option><option value="asc">Cena naraščajoče</option><option value="desc">Cena padajoče</option>
+      </select>
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6e6f69" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="shopQ" type="search" placeholder="Model tiskalnika ali oznaka" aria-label="Iskanje" value="${esc(shopState.q)}">
+      </div>
+    </div>
+    <div id="results"></div>
+  </div>
+  <div style="height:112px"></div>`;
+}
+function renderResults(){
+  const q = shopState.q.trim().toLowerCase();
+  let list = PRODUCTS.filter(p=>
+    (shopState.brand==="Vse"||p.brand===shopState.brand) &&
+    (shopState.color==="all"||(shopState.color==="K"?p.color==="K":p.color!=="K")) &&
+    (!q || [p.name,p.code,p.fits,p.brand].join(" ").toLowerCase().includes(q))
+  );
+  if(shopState.sort==="asc") list.sort((a,b)=>a.price-b.price);
+  if(shopState.sort==="desc") list.sort((a,b)=>b.price-a.price);
+  $("#results").innerHTML = list.length
+    ? `<p class="muted" style="font-size:14px;margin-bottom:16px">${list.length} ${list.length===1?"izdelek":list.length===2?"izdelka":list.length<5?"izdelki":"izdelkov"}</p><div class="grid">${list.map(card).join("")}</div>`
+    : `<div class="empty"><h3>Za „${esc(shopState.q)}“ nismo našli kasete</h3><p>Imamo jih več, kot jih je na spletu. Pišite nam model tiskalnika in vam pripravimo ponudbo.</p><a class="btn" href="mailto:${SHOP.email}?subject=${encodeURIComponent("Povpraševanje: "+shopState.q)}">Pošlji povpraševanje</a></div>`;
+  reveal($("#results"));
+}
+function bindShop(){
+  $("#brandChips").onclick=e=>{ const b=e.target.closest(".chip"); if(!b) return; shopState.brand=b.dataset.b; document.querySelectorAll("#brandChips .chip").forEach(c=>c.classList.toggle("on",c===b)); renderResults(); };
+  $("#colorSel").value=shopState.color; $("#sortSel").value=shopState.sort;
+  $("#colorSel").onchange=e=>{shopState.color=e.target.value;renderResults();};
+  $("#sortSel").onchange=e=>{shopState.sort=e.target.value;renderResults();};
+  $("#shopQ").oninput=e=>{shopState.q=e.target.value;renderResults();};
+  renderResults();
+}
+
+let pdQty=1;
+function viewProduct(id){
+  const p=byId(id); if(!p) return viewNotFound();
+  pdQty=1;
+  return `<div class="wrap pd">
+    <div class="pd-art" data-c="${p.color}">${photo(p,true)}<span class="chip-c"><i style="background:${C[p.color]}"></i>${CN[p.color]}</span></div>
+    <div>
+      <div class="crumb"><a href="#/trgovina">Trgovina</a> / ${esc(p.brand)}</div>
+      <span class="tag">${check.replace('class="ico"','width="14" height="14"').replace('#8fd1ae','#14563a').replace('#111210','#fff')} Obnovljeno v Sloveniji</span>
+      <h1>${esc(p.name)}</h1>
+      <p class="muted">${p.type} · ${CN[p.color]} · ${p.pages.toLocaleString("sl-SI")} strani pri 5 % pokritosti</p>
+      <div class="price">${eur(p.price)}</div>
+      <div class="vat">Cena vključuje DDV · Dobava 1–2 delovna dneva</div>
+      <dl class="specs">
+        <div><dt>Oznaka</dt><dd>${esc(p.code)}</dd></div>
+        <div><dt>Za tiskalnike</dt><dd>${esc(p.fits)}</dd></div>
+        <div><dt>Kapaciteta</dt><dd>${p.pages.toLocaleString("sl-SI")} strani</dd></div>
+        <div><dt>Izvedba</dt><dd>Obnovljena originalna kaseta (OEM ohišje)</dd></div>
+      </dl>
+      <div class="pd-actions">
+        <div class="qty"><button aria-label="Manj" onclick="pdQty=Math.max(1,pdQty-1);this.nextElementSibling.textContent=pdQty">−</button><span>1</span><button aria-label="Več" onclick="pdQty++;this.previousElementSibling.textContent=pdQty">+</button></div>
+        <button class="btn" style="flex:1" onclick="addToCart('${p.id}',pdQty);openCart()">Dodaj v košarico</button>
+      </div>
+      <div class="assure">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e6007e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 22px"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 10"/></svg>
+        <div><b>Ni kitajska kopija.</b>Originalno ohišje, ročna obnova in testni tisk pred odpremo. Če kaseta ne tiska brezhibno, jo zamenjamo.</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function viewCheckout(){
+  const items=cartItems();
+  if(!items.length) return `<div class="wrap"><div class="empty" style="padding:140px 0"><h3>Košarica je prazna</h3><p>Dodajte izdelke, nato oddajte naročilo.</p><a class="btn" href="#/trgovina">V trgovino</a></div></div>`;
+  return `<div class="wrap co">
+    <form id="coForm" novalidate>
+      <div class="crumb"><a href="#/trgovina">Trgovina</a> / Naročilo</div>
+      <h1>Oddaja naročila</h1>
+      <p class="muted">Po oddaji vam pošljemo predračun. Blago odpremimo po prejemu plačila oz. po dogovoru.</p>
+
+      <fieldset><legend>Podatki</legend>
+        <div class="fields">
+          <label class="f full">Ime in priimek<input name="name" autocomplete="name" required><span class="err"></span></label>
+          <label class="f">Podjetje <span class="opt">(neobvezno)</span><input name="company" autocomplete="organization"></label>
+          <label class="f">Davčna številka <span class="opt">(neobvezno)</span><input name="vat" placeholder="SI12345678"></label>
+          <label class="f">E-pošta<input name="email" type="email" autocomplete="email" required><span class="err"></span></label>
+          <label class="f">Telefon<input name="phone" type="tel" autocomplete="tel" required><span class="err"></span></label>
+          <label class="f full">Naslov<input name="street" autocomplete="street-address" required><span class="err"></span></label>
+          <label class="f">Poštna številka<input name="zip" autocomplete="postal-code" inputmode="numeric" required><span class="err"></span></label>
+          <label class="f">Kraj<input name="city" autocomplete="address-level2" required><span class="err"></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend>Dostava</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="ship" value="Dostava (pošta)" checked><div><b>Dostava na naslov</b><small>${SHOP.freeShipping?`Brezplačno nad ${eur(SHOP.freeShipping)}, sicer ${eur(SHOP.shippingCost)}`:""}</small></div></label>
+          <label class="opt"><input type="radio" name="ship" value="Osebni prevzem"><div><b>Osebni prevzem</b><small>${SHOP.address} · ${SHOP.hours}</small></div></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend>Plačilo</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="pay" value="Predračun (UPN)" checked><div><b>Predračun</b><small>Plačilo po predračunu na TRR</small></div></label>
+          <label class="opt"><input type="radio" name="pay" value="Po povzetju"><div><b>Po povzetju</b><small>Plačilo ob prevzemu paketa</small></div></label>
+        </div>
+      </fieldset>
+
+      <fieldset><legend>Opomba <span class="muted" style="font-weight:400;font-size:15px">(neobvezno)</span></legend>
+        <label class="f"><textarea name="note" aria-label="Opomba" placeholder="npr. model tiskalnika, želen termin prevzema"></textarea></label>
+      </fieldset>
+
+      <label style="display:flex;gap:10px;align-items:flex-start;margin-top:28px;font-size:14px"><input type="checkbox" name="terms" required style="margin-top:4px;accent-color:var(--ink)"> <span>Strinjam se s <a href="#/pogoji">splošnimi pogoji</a> in obdelavo podatkov za izvedbo naročila.</span></label>
+      <p class="err" id="termsErr" style="color:var(--warn);font-size:13px;margin-top:6px"></p>
+      <button class="btn block" type="submit" style="margin-top:20px;height:54px">Oddaj naročilo · ${eur(subtotal()+shipping())}</button>
+    </form>
+
+    <aside class="summary">
+      <h2>Povzetek</h2>
+      ${items.map(({p,q})=>`<div class="line"><div class="mini" data-c="${p.color}">${photo(p)}</div><div><h4>${esc(p.name)}</h4><div class="meta">${q} × ${eur(p.price)}</div></div><div>${eur(p.price*q)}</div></div>`).join("")}
+      <div style="margin-top:16px">
+        <div class="sum"><span class="muted">Vmesni seštevek</span><span>${eur(subtotal())}</span></div>
+        <div class="sum"><span class="muted">Dostava</span><span id="shipVal">${shipping()?eur(shipping()):"Brezplačno"}</span></div>
+        <div class="sum total" style="margin-bottom:0"><span>Skupaj z DDV</span><span id="totVal">${eur(subtotal()+shipping())}</span></div>
+      </div>
+    </aside>
+  </div>`;
+}
+function bindCheckout(){
+  const f=$("#coForm"); if(!f) return;
+  const shipCost = () => f.ship.value==="Osebni prevzem"?0:shipping();
+  const refresh = () => { const sc=shipCost(); $("#shipVal").textContent=sc?eur(sc):"Brezplačno"; $("#totVal").textContent=eur(subtotal()+sc); f.querySelector('button[type=submit]').textContent=`Oddaj naročilo · ${eur(subtotal()+sc)}`; };
+  f.querySelectorAll('input[name=ship]').forEach(r=>r.onchange=refresh);
+  const msg = el => {
+    if(!el.required) return "";
+    if(!el.value.trim()) return "To polje izpolnite, prosim.";
+    if(el.type==="email" && !/^\S+@\S+\.\S+$/.test(el.value)) return "Preverite e-naslov, npr. ime@podjetje.si.";
+    if(el.name==="zip" && !/^\d{4}$/.test(el.value.trim())) return "Poštna številka ima 4 števke.";
+    return "";
+  };
+  const validate = el => { const m=msg(el); el.classList.toggle("bad",!!m); const e=el.parentElement.querySelector(".err"); if(e) e.textContent=m; return !m; };
+  f.querySelectorAll(".f input[required]").forEach(el=>{ el.addEventListener("blur",()=>validate(el)); el.addEventListener("input",()=>{ if(el.classList.contains("bad")) validate(el); }); });
+  f.onsubmit = async e => {
+    e.preventDefault();
+    let ok=true, first=null;
+    f.querySelectorAll(".f input[required]").forEach(el=>{ if(!validate(el)){ ok=false; first=first||el; } });
+    $("#termsErr").textContent = f.terms.checked?"":"Za oddajo naročila potrdite splošne pogoje.";
+    if(!f.terms.checked) ok=false;
+    if(!ok){ (first||f.terms).focus(); return; }
+
+    const d=Object.fromEntries(new FormData(f)), sc=shipCost();
+    const no="NP-"+Date.now().toString().slice(-6);
+    const lines=cartItems().map(({p,q})=>`${q} × ${p.name} (${p.code}) — ${eur(p.price*q)}`).join("\n");
+    const body=`Naročilo ${no}\n\n${lines}\n\nDostava: ${d.ship} — ${sc?eur(sc):"brezplačno"}\nSkupaj z DDV: ${eur(subtotal()+sc)}\nPlačilo: ${d.pay}\n\n${d.name}${d.company?"\n"+d.company:""}${d.vat?"\nDŠ: "+d.vat:""}\n${d.street}\n${d.zip} ${d.city}\n${d.email} · ${d.phone}\n\nOpomba: ${d.note||"—"}`;
+
+    if(SHOP.formEndpoint){
+      try{
+        const r=await fetch(SHOP.formEndpoint,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify({_subject:`Novo naročilo ${no}`,email:d.email,narocilo:body})});
+        if(!r.ok) throw 0;
+      }catch(_){ toast("Naročila nismo mogli poslati. Poskusite znova ali nas pokličite."); return; }
+    }else{
+      location.href=`mailto:${SHOP.email}?subject=${encodeURIComponent("Naročilo "+no)}&body=${encodeURIComponent(body)}`;
+    }
+    lastOrder={no,email:d.email,pay:d.pay}; cart={}; saveCart();
+    setTimeout(()=>{ location.hash="#/hvala"; },400);
+  };
+}
+let lastOrder=null;
+function viewThanks(){
+  return `<div class="wrap"><div class="thanks">
+    <div class="ok">${tick.replace('width="16" height="16"','width="26" height="26"').replace('currentColor','#fff')}</div>
+    <h1>Hvala za naročilo.</h1>
+    ${lastOrder?`<p>Številka naročila: <b>${lastOrder.no}</b></p><p>${lastOrder.pay.startsWith("Predračun")?`Predračun vam pošljemo na <b>${esc(lastOrder.email)}</b> v enem delovnem dnevu.`:`Potrditev pošljemo na <b>${esc(lastOrder.email)}</b>. Paket plačate ob prevzemu.`}</p>`:`<p>Vaše naročilo smo prejeli.</p>`}
+    <p class="muted">Vsako kaseto pred odpremo še enkrat preizkusimo.</p>
+    <a class="btn ghost" href="#/trgovina" style="margin-top:24px">Nazaj v trgovino</a>
+  </div></div>`;
+}
+function viewTerms(){
+  return `<div class="wrap" style="padding:72px 16px 112px;max-width:760px">
+    <div class="eyebrow">Pravno</div><h1 style="font-size:44px;margin:14px 0 24px">Splošni pogoji</h1>
+    <p class="muted">Tukaj vstavite splošne pogoje poslovanja, politiko zasebnosti (GDPR), pravico do odstopa od pogodbe (14 dni) in podatke o podjetju: polni naziv, sedež, matična in davčna številka, vpis v sodni register.</p>
+  </div>`;
+}
+function viewNotFound(){ return `<div class="wrap"><div class="empty" style="padding:140px 0"><h3>Strani ni mogoče najti</h3><p>Morda je izdelek odstranjen.</p><a class="btn" href="#/trgovina">V trgovino</a></div></div>`; }
+
+/* =========================================================
+   USMERJANJE
+   ========================================================= */
+function route(){
+  const h=location.hash.replace(/^#\/?/,"");
+  const [path,qs]=h.split("?"); const [seg,arg]=path.split("/");
+  const app=$("#app");
+  closeCart();
+  document.body.classList.remove("menu-open"); $("#menuBtn").setAttribute("aria-expanded","false");
+  document.querySelectorAll("nav.main a").forEach(a=>a.classList.toggle("on",a.dataset.nav===seg));
+  let scrollTo=null;
+  switch(seg){
+    case "trgovina":
+      if(qs){ const q=new URLSearchParams(qs).get("q"); if(q!==null){ shopState.q=q; shopState.brand="Vse"; } }
+      app.innerHTML=viewShop(); bindShop(); break;
+    case "izdelek": app.innerHTML=viewProduct(arg); break;
+    case "blagajna": app.innerHTML=viewCheckout(); bindCheckout(); break;
+    case "hvala": app.innerHTML=viewThanks(); break;
+    case "pogoji": app.innerHTML=viewTerms(); break;
+    case "kakovost": case "storitve": case "kontakt": app.innerHTML=viewHome(); scrollTo=seg; break;
+    default: app.innerHTML=viewHome();
+  }
+  reveal($("#app"));
+  if(scrollTo){ requestAnimationFrame(()=>{ const el=document.getElementById(scrollTo); if(el) window.scrollTo({top:el.offsetTop-72}); }); }
+  else window.scrollTo(0,0);
+}
+$("#menuBtn").onclick=()=>{ const o=document.body.classList.toggle("menu-open"); $("#menuBtn").setAttribute("aria-expanded",o); };
+window.addEventListener("hashchange",route);
+$("#yr").textContent=new Date().getFullYear();
+
+/* ===== Scroll animacije ===== */
+document.documentElement.classList.add("js");
+const RV_TARGETS = [
+  ".hero-grid>*", ".proof .wrap>div", ".sec-head", ".grid>.card", ".compare-row",
+  ".service", ".contact>*", ".shop-head", ".toolbar", ".pd>*", ".co>*", ".thanks", ".empty"
+].join(",");
+const rvIO = "IntersectionObserver" in window ? new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el=e.target; el.classList.add("in","seen"); rvIO.unobserve(el);
+    el.querySelectorAll("[data-count]").forEach(countUp);
+    if(el.classList.contains("rv")){
+      // po končani animaciji odstrani razrede, da hover učinki delujejo normalno
+      el.addEventListener("transitionend",function done(ev){ if(ev.target!==el||ev.propertyName!=="opacity") return; el.classList.remove("rv","in"); el.removeEventListener("transitionend",done); });
+    }
+  });
+},{rootMargin:"0px 0px -8% 0px",threshold:.08}) : null;
+function reveal(root=document){
+  if(!rvIO) return;
+  root.querySelectorAll(RV_TARGETS).forEach(el=>{
+    if(el.dataset.rv) return; el.dataset.rv="1";
+    const sibs=[...el.parentElement.children].filter(c=>c.matches(RV_TARGETS));
+    el.style.setProperty("--d", (sibs.indexOf(el)%4)*80+"ms");
+    el.classList.add("rv"); rvIO.observe(el);
+  });
+  root.querySelectorAll(".quality").forEach(el=>{ if(!el.dataset.rv){ el.dataset.rv="1"; rvIO.observe(el); } });
+}
+/* štetje številk */
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function countUp(el){
+  if(reduceMotion || el.dataset.done) return; el.dataset.done="1";
+  const end=+el.dataset.count, tpl=el.textContent, t0=performance.now(), dur=1300;
+  const step=t=>{ const k=Math.min(1,(t-t0)/dur), v=Math.round(end*(1-Math.pow(1-k,3)));
+    el.textContent=tpl.replace(String(end),v); if(k<1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+/* glava, napredek branja, paralaksa */
+let ticking=false;
+function onScroll(){
+  const y=scrollY, max=document.documentElement.scrollHeight-innerHeight;
+  $("header.top").classList.toggle("scrolled",y>8);
+  $("#progress").style.setProperty("--p", max>0?(y/max).toFixed(4):0);
+  if(!reduceMotion){
+    const st=document.querySelector(".hero-art .ph img"), seal=document.querySelector(".seal");
+    if(st && y<900){ st.style.setProperty("--py", (y*-0.06).toFixed(1)+"px"); }
+    if(seal && y<900){ seal.style.setProperty("--rot", (y*0.08).toFixed(1)+"deg"); }
+  }
+  ticking=false;
+}
+addEventListener("scroll",()=>{ if(!ticking){ ticking=true; requestAnimationFrame(onScroll); } },{passive:true});
+addEventListener("hashchange",()=>requestAnimationFrame(onScroll));
+renderCart(); route(); onScroll();
+</script>
+</body>
+</html>
